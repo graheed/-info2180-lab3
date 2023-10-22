@@ -1,11 +1,20 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    
+window.onload = function() {
     const divElements = document.querySelectorAll("#board div");
-    
-    divElements.forEach((element) => {
-        
-            element.classList.add("square");
-        
+    let currentPlayer = "X";
+    const gameState = new Array(9).fill(null);
+
+    divElements.forEach((element, index) => {
+      element.classList.add("square");
+  
+      element.addEventListener('click', function() {
+        if (!this.classList.contains('clicked') && gameState[index] === null) {
+          this.textContent = currentPlayer;
+          this.classList.add(currentPlayer);
+          gameState[index] = currentPlayer;
+  
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+        }
+      });
     });
-  });
+  };
   

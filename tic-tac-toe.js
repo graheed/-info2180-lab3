@@ -47,5 +47,33 @@ window.onload = function() {
         element.classList.remove("hover");
      });
    });
+
+   const resetButton = document.querySelector(".controls .btn");
+
+   resetButton.addEventListener("click", function() {
+    divElements.forEach((element, index) => {
+        element.classList = [];
+        element.classList.add("square");
+        element.textContent = "";
+
+        const divStatus = document.querySelector("#status");
+        divStatus.classList.remove("you-won");
+        divStatus.textContent = `Move your mouse over a square and click to play an X or an O.`;
+
+        gameState[0]= null;
+        gameState[1]= null;
+        gameState[2]= null;
+        gameState[3]= null;
+        gameState[4]= null;
+        gameState[5]= null;
+        gameState[6]= null;
+        gameState[7]= null;
+        gameState[8]= null;
+
+        currentPlayer = "X";
+
+    });
+   });
+
   };
   

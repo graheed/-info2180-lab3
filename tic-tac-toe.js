@@ -14,7 +14,15 @@ window.onload = function() {
   
           currentPlayer = currentPlayer === "X" ? "O" : "X";
         }
+     });
+      element.addEventListener('mouseover', function() {
+        element.classList.add("hover");
+    });
+
+    element.addEventListener('mouseout', function() {
+        element.classList.remove("hover");
       });
+
     });
   };
   
